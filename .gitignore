@@ -1,0 +1,10 @@
+*.aux
+*.dvi
+*.fdb_latexmk
+*.fls
+*.log
+*.synctex.gz
+*.bak
+output/build/*
+output/ebook_quality/*
+output/print_quality/*

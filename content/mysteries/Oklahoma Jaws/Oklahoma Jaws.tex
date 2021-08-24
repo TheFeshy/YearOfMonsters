@@ -1,0 +1,207 @@
+%Year of Monsters
+
+% An open-source mystery book for Monster of the Week
+% CC BY-NC-SA 2021 Dave
+
+\documentclass{motw}
+
+%============================================================================
+\begin{comment}
+
+This document generates a PDF of my mystery, Oklahoma Jaws.  See the nearby readme.markdown for instructions.
+
+\end{comment}
+%============================================================================
+
+\begin{document}
+
+\appendtographicspath{{content/mysteries/Oklahoma Jaws/images}}
+
+\imageTop[width=\paperwidth]{header3}
+\imageCredit[modified]{Shark and Boat}{recontx}{Public Domain}
+
+% Mystery title
+\Mystery{Oklahoma Jaws}{Dave W}
+
+\Mhead{Concept}
+
+A killing in a small town has unintentionally served as a ritual sacrifice summoning the ancient protector of a nearly extinct native American tribe. This protector has taken the form of a giant shark, well suited to its native Floridian home.  However, it's hundreds of miles and hundreds of years from the world it knew, and now it's wreaking havoc in a quiet lakeside town.
+
+\Mhead{Hook}
+
+A body washes ashore, the apparent victim of a shark attack.  A frequent occurrence for a city like Miami, perhaps.  But it is a considerably stranger phenomenon for landlocked Konawa, Oklahoma.
+
+\Mhead{Background}
+
+Almost 200 years ago a small Indian tribe native to Florida, the Calusa, was forced onto the Trail of Tears.  Eventually they settled in a river valley in Oklahoma - a valley that was then flooded by the construction of a dam.
+
+Today, their few descendants live in Konawa, a small Midwest town on the shores  of that lake.  One of those descendants is Hosteen “Frank” Tawa, last shaman of the Calusa people. He maintains a small heritage site containing the few Calusa artifacts his people retained. He also looks after his teenage granddaughter, Citlali “Chelsea” Tawa.
+
+Chelsea has needed his looking after. Her parents passed not long ago, and a predatory local, Keme “Chuck” Hota, set his sights on her as a potential sexual conquest. Chuck got tired of taking Chelsea’s “no” as an answer, and tried to force himself on her when he found her alone at her father’s heritage museum. She defended herself with the first thing at hand: a ritual knife of her people. 
+
+This slaying of a rival tribe member (Chuck was from the Creek tribe) with a ritual dagger surrounded by Calusa holy artifacts summoned the tribe’s ancient protector: a spirit named Kuči.  As the Calusa were an oceanic people, it has taken the form of a shark.  It has been attacking what it perceives as the tribe’s enemies since then - but it does not understand the new world or new terrain in which it finds itself.
+
+The first enemies it identifies are a trio of AvoCorp employees.  AvoCorp has been buying up lakeside property with the intention of turning the area into a vacation destination.  The two most stubborn holdouts preventing this were Frank and Chuck, and AvoCorp was threatening to seize their land (including the heritage site) with eminent domain. Peter Paulson, one of these AvoCorp employees, is Kuči's first victim.
+
+\Countdown%
+{Conflicting reports of large, dark shapes moving in Lake Konowa are given by the locals}
+{A pair of AvoCorp execs are eaten by the shark while boating -- along with their boat}
+{A local is attacked in a hot tub, leaving evidence of shark bites and broken shark teeth all over}
+{Attacks begin happening in nearby lakes as well}
+{Kuči rampages, destroying all watercraft and swimmers in Lake Konawa}
+{No lake, pool, or bathtub in Oklahoma is safe from the shark, which begins appearing in any body of water large enough to hold even a small shark}
+
+% == Threats ==---------------------------------------------------------------
+
+\imageCredit[modified]{Megalodon Tooth}{Géry PARENT}{CC-BY-SA}
+\imageRight[width=1.5in, margin=0.3in, position=center]{tooth2}{
+\Mhead{Threats}
+
+\Cast{Kuči (Calusa for "Destroyer")}{monster}{executioner}
+
+In the ancient past, Kuči would be summoned to protect the Calusa tribe from rivals.  It remembers these days, in an animalistic way: prowling the warm, salty rivers and oceans of Florida in search of worthy warriors that are} the enemies of its shaman.  Those days are long gone now, and the spirit can find neither warm salty water nor worthy warriors.  It does not understand the threats facing what little remains of the modern Calusa: financial problems and legal wrangling.  It's primal confusion is slowly driving the spirit to lash out at everyone.
+
+The one group of people it is likely to solidly identify as "worthy warriors" will be the Hunters.
+
+\imageBottom[width=5.5in, yoffset=0.75in]{shark3}
+\imageCredit{Shark}{}{Public Domain}
+
+\begin{mStatList}{Powers}
+    \mStat{Manifest}{At first, Kuči can manifest only in Lake Konawa, as it is the site currently most closely tied to the Calusa.  As the countdown progresses, the distance and type of bodies of water expands to include any water in Oklahoma.}
+    \mStat{Shark Forms}{Kuči can assume three forms:  A school of small sharks, one large shark, and a huge, ancient megalodon.  From a distance it appears a mundane shark, but up close spiritual war paint adorns its scales.  All of its forms shed teeth of a size appropriate to its form, and these will be found at the attack sites.}
+    \mStat{Immortal Protector}{Kuči can not be slain by harm, but only driven off for a time.}
+\end{mStatList}
+
+\begin{mStatList}{Attacks}
+    \mStat{Frenzied Bites (School of sharks)}{3-harm, intimate, area}
+    \mStat{Big Chomp (Large shark)}{3-harm, intimate, armor piercing}
+    \mStat{Tail Thrash (Large shark or Megalodon)}{2-harm, close, stuns the target temporarily}
+\end{mStatList}
+
+\begin{mStatList}{Moves}
+    \mStat{Swallow Whole}{As a megalodon, Kuči can swallow a swimmer whole.  The victim is transported to the Deep Swamp (see locations)}
+    \mStat{Smash}{As a megalodon, the shark is large enough to critically damage or destroy any water craft on Lake Konawa}
+\end{mStatList}
+
+\begin{mStatBlock}{Armor}
+    \mStat{Small sharks}{0-armor}
+    \mStat{Large shark}{1-armor}
+    \mStat{Megalodon Scales}{2-armor}
+\end{mStatBlock}
+
+\harmtrack{11}
+
+\begin{mStatList}{Weakness}
+    \mStat{Peace}{Kuči will depart when the tribe declares peace, symbolized by burying one of its rivals in a sacred Calusa burial site.  Chuck is such a rival, but unfortunately most of the burial sites are in Florida, and likely long ago paved over by strip malls.  Only one is close at hand:  The site that used to sit along the river valley, but since the building of the dam is now at the bottom of Lake Konawa.}
+    \mStat{Victory}{The shark will return to the spirit world if the Calusa achieve some sort of victory that it can understand - though, as a spirit of war, this will be difficult.}
+    \mStat{Defeat}{The shark will also leave if the last of the Calusa priests are dead - which consists of Frank and his blood relative Chelsea.}
+\end{mStatList}
+
+\Cast{Hosteen "Frank" Tawa (Shaman)}{minion}{guardian}
+
+\imageCredit[modified]{Native American Shaman}{NARA}{Public Domain}
+\imageLeft[width=1.5in, margin=0.5in, position=center]{%
+frank2}{%
+Frank does not wish Kuči to harm anyone, but he is afraid that knowledge of Kuči will lead to the town discovering that his granddaughter killed Chuck - an outcome he wants desperately to avoid.  His own experiences with the American legal system have lead him to believe Chelsea will not get a fair trial.  So while he is using his \emph{Shamanic Influence} to weaken Kuči whenever he is able, he is also working to prevent knowledge of it from coming out.  The tension between the desire to protect his granddaughter and guilt over the attacks is growing, however.
+
+Frank is very traditional, and always refers to his granddaughter by her tribal name of Citlali, rather than Chelsea.  He is the last of the Calusa shamans, and runs the small Calusa Heritage Museum in town.
+
+\begin{mStatBlock}{Attacks}
+    \mStat{Ancient dagger that killed chuck}{2-harm close messy, made from a megalodon tooth}
+\end{mStatBlock}
+
+\begin{mStatBlock}{Armor}
+    \mStat{Shamanic vestments}{0-armor}
+\end{mStatBlock}
+
+\humanharmtrack}
+
+\begin{mStatList}{Powers}
+    \mStat{Shamanic Influence}{When dressed in the vestments of a shaman of the Calusa, Frank can influence Kuči by making him stronger or weaker.}
+    \mStat{Shamanic Connection}{Frank has a subtle connection with the spirit, allowing him to have an idea of where it will show up next so that he can be there.  As a result, he will attempt to be at every attack site in full garb.}
+\end{mStatList}
+
+% == Bystanders and Locations ==----------------------------------------------
+
+\Mhead{Bystanders and Locations}
+
+\Cast{Citlali "Chelsea" Tawa (Granddaughter)}{bystander}{innocent}
+
+Chelsea doesn't like hiding the fact that she killed Chuck - she doesn't think she did anything wrong.  But she's still shaken by the experience, and reluctantly following her grandfather Frank's advice to keep the killing covered up.
+
+She suspects her grandfather knows something about the shark, but does not know the details
+
+\Cast{Jim Tuari (Sheriff)}{bystander}{gossip}
+
+Jim is in way over his head.  His duties in this tiny town are usually split between domestic violence and drunken disorderly.  Now he's got a missing person and a body in the same week.  He'll lament to anyone and everyone about the stress of the two cases, especially any details he finds strange or confusing.
+
+Despite his griping, Jim will eventually narrow in on Frank and Chelsea as suspects in Chuck's disappearance. 
+
+\Cast{Jackston Kody and Ara Belford (AvoCorp Executives)}{bystander}{victim}
+
+\imageRight[width=2in, margin=0.5in, position=center]{selfie}{%
+Jackston and Ara plan to go through with the real estate deal – as far as they are concerned, the shark attack is at worst just a PR problem, and might even be a PR benefit (now that the town is in the news.) They are treating the trip to Konawa as a corporate-sponsored tryst, and are too interested in each other to have anything but a passing interest in their co-worker Peter’s death. They believe he merely drown on his morning swim, and the locals are just gullible.}
+
+\Cast{Bill's Bait Bungalow}{location}{hub}
+
+Konawa is far too small to have a dedicated morgue. Instead, Bill’s Bait Bungalow was chosen as the location to examine Paulson’s body, as it was a) close, b) had an appropriate examination table (previously used to clean fish) and…. er c)a freezer to store the body (we took the bait out first, we promise.) This is where Paulson’s body was examined and is stored. It is also likely where you will find Sasha Noya (if you are using her), as she examines the body and the lake.
+
+\Cast{Calusa Cultural Center and Museum}{location}{wilds}
+
+This is the small museum of cultural artifacts Frank Tawa maintains. It’s also the murder scene of Chuck, and a resource of Calusa history, including their protector spirits. Chuck’s body is likely hidden near here somewhere too.  It will show evidence of a shark tooth (from the dagger) but not a shark bite.
+
+\Cast{Lake Konawa}{location}{maze}
+
+There are plenty of boats and jet skis to be found in and around this large freshwater reservoir. The lake has long been a source of local entertainment through fishing and other water sports. It’s kept relatively warm year round by the local power plant that uses it for cooling.  
+
+While it is relatively calm, the bottom is a twisting maze of bulidings and trees that used to line the riverbank before the reservoir was flooded.
+
+\begin{mStatBlock}{Moves}
+    \mStat{Separate them}{It is very easy to get disoriented in the dark, placid waters of the lake.}
+\end{mStatBlock}
+
+\Cast{The Deep Swamp}{location}{deathtrap}
+\imageCredit{Cypress trees in the water}{}{CC0}
+
+\imageRight[width=2in, margin=0.5in, position=center]{swamp4}{%
+A memory in the spirit-mind of Kuči, anyone \emph{Swallowed Whole} by it will find themselves here.  It is primeval Florida swamp and coast, as remembered through the eyes of a warrior spirit.  It is also a test of worthy warriors - those with the skills to survive the hazards of the swamp can escape. If they do, they will find themselves wandering back in town with only a hazy memory of their trials.}
+
+The swamp is full of dangerous creatures and features - from quick sand to oceanic undertow to alligators, snakes, and disease.  Even some extinct animals like terror birds and pygmy mammoths show up here.  All should have a slightly fantastical feel or look to them.  Successfully escaping the swamp will stabilize any injuries received there (bleeding wounds, snake venom, leech-born disease, etc.) but any wounds remain.
+
+If it is late enough in the countdown, other victims (or their remains) may be found here as well.
+
+\begin{mStatList}{Special}
+    \mStat{Escaping}{- Here are some suggested methods of escaping: Returning with food to the village in the swamp, defeating a mighty opponent, surviving into the heart of the swamp to meet the spirit that dwells there, sailing out of sight of land on a makeshift raft.}
+    \mStat{Using Luck}{- If a hunter uses luck on a challenge in The Deep Swamp, they  not only succeed at their current test, but through luck succeed at one of the escape conditions (though not necessarily the one they were trying for.)  This comes at a price:  They have attuned to The Deep Swamp, and a part of them will remain here in this spirit realm.  This could be both beneficial and baleful, and will likely manifest in dreams.}
+\end{mStatList}
+
+\Mhead{Extras}
+
+These cast members, while not vital to the mystery, can be used to add extra background information or character to the hunt.
+
+\imageBottom[width=5in, yoffset=0.5in]{hammerhead2}
+\imageCredit{Hammerhead}{}{CC0}
+
+\Cast{Bill, of Bill's Bait Bungalow}{bystander}{gossip}
+
+Bill has been excised from his own shop - but rather than sulk, has taken it as an opportunity.  He's set up his grill out front, and is selling fresh grilled meals to any gawkers and rumormongers who stop by to try to see what is going on.  As gossip is good for business (and "big fish" stories in particular), he's more than happy to share everything he's heard.  In fact, just try and stop him.
+
+Most of what he's heard are the townsfolk's divided opinions on the situation (which is typical of small town rumor-mills.)  They are divided on whether AvoCorp's buyout will "ruin the town" or "bring much needed tourism money."  As such they are divided on whether Frank and Chuck are heroes for holding out, or curmudgeons holding back the town.  They are divided on whether Chuck is "missing" or "in hiding because he's the one responsible for Peter's death, to stop AvoCorp."  They are divided on whether the shark is real and should be hunted, or pure small town fantasy.
+
+About the only thing they \emph{aren't} divided on is the lake - with the high tensions in the town and the lovely weather, seemingly everyone wants to get out on or in the lake to either relax or find the shark.
+
+\Cast{Sasha Noya (Marine Biologist)}{bystander}{skeptic}
+
+Sasha grew up in Konawa, and was one of the few residents to get out of the town and make a life for herself. She’s not happy about being drug back to her home town, and even less happy about the fact that the crazy, superstitious townsfolk seem to be right about a shark.
+
+Sasha is trying her best to be skeptical of something as absurd as a shark in Oklahoma. But the evidence keeps leading her back, and she finds herself hedging all her skeptic denials. Examples: \emph{"Sharks are marine animals; they can't live in a freshwater lake. Except maybe for bull sharks.”} and \emph{“It would be very hard for a lake to support a shark with food - although Lake Konawa is the highest bass-producing lake in Oklahoma.”} and \emph{“Bite mark analysis is not an exact science - plenty of creatures can cause ambiguous bite marks! although this does look remarkably like a shark bite.”} and \emph{“They found a shark tooth in Peter, but you can buy those at the gift shop. Although this one looks larger than their stock.”}
+
+\Cast{Cecilia Pliego (Reporter)}{bystander}{busybody}
+
+Nothing happens in and around Kowana, which makes being a reporter difficult. Now that something interesting has happened, Cecilia has decided to milk it for all it’s worth. She will be all up in everyone’s business to pursue this story.
+
+Genuine monster hunters would also be a great story - so if the hunters want to keep a low profile, they’ll have to avoid Cecilia’s attention.
+
+\makeImageCredits[cc-by-nc-sa]
+
+\end{document}

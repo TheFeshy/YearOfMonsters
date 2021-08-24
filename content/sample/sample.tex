@@ -1,0 +1,92 @@
+% Year of Monsters: A Sample template for a LaTeX formatted Monster of the Week mystery
+
+\documentclass{motw}
+
+\begin{document}
+
+\appendtographicspath{{content/sample/images}}
+
+\Mystery{Sample Mystery}{Your Name Goes Here}
+
+\imageTop[width=\paperwidth]{top}
+\imageCredit{Name of top image}{Sample Artist}{CC0}
+
+\Mhead{Concept}
+This is where you will put the text describing the content of your mystery.  You can use the same syntax for the Hook, the Background, and anything else your mystery needs!
+
+You can add centered images anywhere in a page:
+\imageHere[width=3in]{here}
+\imageCredit{Centered image}{}{CC0}
+
+\Countdown%
+{This is where your countdown starts}
+{Each day is a separate parameter}
+{You can put \emph{formatted} text in here too, if you like}
+{Even lists with items
+\begin{itemize}
+    \item Item 1
+    \item Item 2
+\end{itemize}
+}
+{I hope your hunters have figured things out by here}
+{Because usually this last step is pretty dangerous}
+
+\imageCredit{left}{}{CC0}
+\imageLeft[width=1.0in, margin=0in]{side}{%
+    Side images are trickier.  As you can see, you have to pass the text that will go beside the image as a parameter.  Like before, you can \emph{format} the text however you want, including headings and lists.%
+}
+
+\Mhead{Threats}
+
+\Cast{Doctor Minionson}{minion}{renfield}
+
+This is how you add a monster, minion, phenomenon, bystander, or location.  The second parameter is one of those categories, and the third is the specific type (such as 'beast' or 'cultist')  All the categories and types from both Monster of the Week as well as Tome of Mysteries can be used.
+
+\begin{mStatList}{Powers}
+    \mStat{A Cool Power}{You can add powers in itemized lists, like this}
+    \mStat{Less cool Power}{and this}
+\end{mStatList}
+
+\begin{mStatBlock}{Attacks}
+    \mStat{An attack}{You can also add stats in blocks}
+    \mStat{another attack}{like these two attacks}
+\end{mStatBlock}
+
+\begin{mStatBlock}{Armor}
+    \mStat{Sturdy Lab coat}{1-armor}
+\end{mStatBlock}
+
+\harmtrack{10}
+
+Don't forget your monster or minion's harm track, which can be done like this
+
+\harmtrack[5]{10}
+
+Or this, if you want it to have an unstable mark
+
+\humanharmtrack
+
+Or this, if your monster or minion is merely human
+
+\imageRight[width=2in]{side}{%
+
+\Cast{Dr Minionson's Lair}{location}{lab}
+
+This is an example location.  You can add moves to it, just like other Threats, by using mStatList and mStatBlock sections.
+
+\begin{mStatList}{Custom Moves}
+    \mStat{Dangerous experiments}{Dr. Mininoson's experiments are everywhere.  Occasionally, one bursts into flame, or shoots sparks, or crawls away.}
+\end{mStatList}
+}
+
+Lastly, here is how to put an image at the bottom of the page:
+
+\imageBottom[width=3in]{bottom}
+\imageCredit[modified]{bottom image}{original artist or modifying artist}{cc0}
+
+Notice that it places the image on the bottom of the page, even though this text comes after it.
+
+\makeImageCredits[cc0]
+
+
+\end{document}
