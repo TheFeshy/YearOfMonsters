@@ -320,6 +320,7 @@
         \case{phenomenon}{\emph{Phenomenon:~\@phentype{#3}}}%
         \case{bystander}{\emph{Bystander:~\@bystandertype{#3}}}%
         \case{location}{\emph{Location:~\@locationtype{#3}}}%
+        \default{\emph{#2:~#3}}%
     \end{switch}%
     \medbreak
 }
@@ -338,6 +339,7 @@
         \case{tempter}{Tempter (motivation: to tempt people into evil deeds)}%
         \case{torturer}{Torturer (motivation: to hurt and terrify)}%
         \case{trickster}{Trickster (motivation: to create chaos)}%
+        \default{#1}%
     \end{switch}%
 }
 
@@ -353,6 +355,7 @@
         \case{scout}{Scout (motivation: to stalk, watch, and report)}%
         \case{thief}{Thief (motivation: to steal and deliver to the monster)}%
         \case{traitor}{Traitor (motivation: to betray people)}%
+        \default{#1}%
     \end{switch}%
 }
 
@@ -370,6 +373,7 @@
         \case{portal}{Portal (motivation: to draw things from one world to another)}%
         \case{teratogen}{Teratogen (motivation: to turn creatures and people into monsters)}%
         \case{zone}{Zone (motivation: to harm all that venture within)}%
+        \default{#1}%
     \end{switch}%
 }
 
@@ -384,6 +388,7 @@
         \case{skeptic}{Skeptic (motivation: to deny supernatural explanations)}%
         \case{victim}{Victim (motivation: to put themselves in danger)}%
         \case{witness}{Witness (motivation: to reveal information)}%
+        \default{#1}%
     \end{switch}%
 }
 
@@ -399,6 +404,7 @@
         \case{maze}{Maze (motivation: to confuse and separate)}%
         \case{prison}{Prison (motivation: to constrain and prevent exit)}%
         \case{wilds}{Wilds (motivation: to contain hidden things)}%
+        \default{#1}%
     \end{switch}%
 }
 
