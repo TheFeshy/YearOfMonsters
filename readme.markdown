@@ -12,7 +12,7 @@ Sure!  You can find the mysteries I've released using this template [here](https
 
 You will need three things, at least one of which you probably already have:
 
-* This repository `TODO: get the git clone command for our repository`
+* This repository, using the command `git clone https://github.com/TheFeshy/YearOfMonsters.git`
 * A distribution of [LaTeX](https://www.latex-project.org/get/) (It's free and open source)
 * A text editor
 
@@ -212,11 +212,23 @@ At the very end of your document, you want to do three things:  Place the image 
 
 it will even include the graphic version of that copyright from the Creative Commons.  Of course, if you want something fancier, you can leave off the optional parameter and put your own copyright information or images in yourself.
 
+## Troubleshooting
+
+### I have many underfull / overfull hbox / vbox errors
+
+This is normal for LaTeX.  It tries to fit and align your text into pretty tight margins, and if it can't do so it warns you.  Usually this is by a very small value, like 1-2 points (<1 mm.)  If you want to see where these are occuring, you can add the `[draft]` parameter to the document, like this: `\documentclass[draft]{motw}`  The ovefull and underfull areas will be filled in black in the PDF so you can see them.
+
+## Advanced Topics
+
+### Reducing Image Resolution
+
+LaTeX happily adds images in whatever resolution you have included them in - so if you've added a 1080p image at 2 inches, it's going to have a resolution much higher than most screens can display.  This won't hurt anything, but it does make your PDF larger than necessary.  If you run `release_quality.sh` in the root directory, it will convert all the images in your PDF to both 300  DPI (print_quality) or 150 DPI (ebook_quality) in your output folder.  These should result in PDFs sized suitably for reasonable download speeds.  The script will also have ghostscript make a few other optimizations, like leaving out font characters that aren't used.
+
 ## Legal
 
 ### Disclaimers
 
-This template and all sample mysteries are distributed without any warranty, express or implied, including the promise that it won't subvert the laws of physics and unleash an evil that needs to be stopped.
+This template and all sample mysteries are distributed without any warranty, express or implied, including the implied assumption that it won't subvert the laws of physics and unleash an evil that needs to be stopped.
 
 ### Copyright
 
