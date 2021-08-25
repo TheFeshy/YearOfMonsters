@@ -21,7 +21,7 @@ $pdf_mode=4;
 ensure_path( 'TEXINPUTS', './lib/cls//:' );
 
 # If you need to override the LuaLaTeX default commands, you can do it here (defaults shown):
-# $lualatex = "lualatex %O %S"
+$lualatex = "lualatex -interactive=nonstopmode %O %S";
 
 # If you need to override the XeLaTex default commands, you can do it here (defaults shown):
-# $xelatex = "xelatex %O %S"
+$xelatex = "xelatex -interactive=nonstopmode %O %S";
