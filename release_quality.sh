@@ -1,5 +1,8 @@
 #!/bin/bash
 
+PRINT_DIR="output/print_quality"
+EBOOK_DIR="output/ebook_quality"
+
 print_quality () {
     echo "Converting $1 to print quality"
     BN=$(basename "$1")
@@ -11,7 +14,7 @@ print_quality () {
     -dPDFSETTINGS=/printer \
     -dEmbedAllFonts=true \
     -dSubsetFonts=true \
-    -sOutputFile="output/print_quality/$BN" \
+    -sOutputFile="$PRINT_DIR/$BN" \
     "$1"
 }
 
@@ -26,9 +29,12 @@ ebook_quality () {
     -dPDFSETTINGS=/ebook \
     -dEmbedAllFonts=true \
     -dSubsetFonts=true \
-    -sOutputFile="output/ebook_quality/$BN" \
+    -sOutputFile="$EBOOK_DIR/$BN" \
     "$1"
 }
+
+mkdir -p "$PRINT_DIR"
+mkdir -p "$EBOOK_DIR"
 
 SAVEIFS=$IFS
 IFS=$(echo -en "\n\b")
