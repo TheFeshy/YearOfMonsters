@@ -56,7 +56,7 @@
 \RequirePackage{xstring} % String length measurements
 \RequirePackage[absolute,overlay]{textpos} % for text overlays
 \RequirePackage{graphicx} % images
-\RequirePackage{hyperref} % for document hyperrefs, but used here to set PDF info
+\RequirePackage{hyperref} % for document hyperrefs, but used here to set PDF info and TOC
 
 % == Package configuration ==
 \usetikzlibrary{shapes.misc,shapes.symbols,calc}
@@ -69,6 +69,10 @@
     \g@addto@macro\Ginput@path{#1}%
 }
 
+% Set depth of label to have a bookmark
+\hypersetup{bookmarksdepth=subsubsection}
+\hypersetup{bookmarksopen=true}
+
 % == Switch implementation ==-------------------------------------------------
 \newboolean{default}
 \newcommand{\ifequals}[3]{\ifthenelse{\equal{#1}{#2}}{#3}{}}
@@ -76,7 +80,6 @@
 \newcommand{\default}{} % Dummy for default case
 \newenvironment{switch}[1]{%
     \setboolean{default}{true}
-    %\renewcommand{\case}{\ifequals{#1}}%
     \renewcommand{\case}[2]{\ifthenelse{\equal{#1}{##1}}{%
         \setboolean{default}{false}##2}{}}%
     \renewcommand{\default}[1]{\ifthenelse{\boolean{default}}{##1}{}}%
@@ -110,9 +113,9 @@
 
 % Set up some font commands
 \newcommand\pagenumberfont[1]{\Large\thirdman{#1}}
-\newcommand\sssfont[1]{\small\thirdman{#1}} %sub-sub-section font
-\newcommand\ssfont[1]{\LARGE\thirdman{#1}} % sub-section font
-\newcommand\sfont[1]{\Huge\thirdman{#1}} % section font
+\newcommand\sssfont[1]{\raggedright\small\thirdman{#1}} %sub-sub-section font
+\newcommand\ssfont[1]{\raggedright\LARGE\thirdman{#1}} % sub-section font
+\newcommand\sfont[1]{\raggedright\Huge\thirdman{#1}} % section font
 
 \newcommand\byfont[1]{\textit{#1}} % mystery author by-line
 \newcommand\cdfonta[1]{\Large\textbf{#1}} % Countdown time font
@@ -222,11 +225,11 @@
 
 % == Basic headers ==
 \newcommand{\Mhead}[1]{%
-    \subsection{\raggedright{#1}}%
+    \subsection{#1}%
 }
 
 \newcommand{\mhead}[1]{%
-    \subsubsection{\raggedright{#1}}%
+    \subsubsection{#1}%
 }
 
 % == Countdown Clock ==
@@ -430,11 +433,12 @@
 \newlength{\iboxheight}
 \newlength{\maxexclude}
 
-\newcommand\@centerimage[2][]{%
+\newcommand\@centerimage[3][]{%
     % Parse key / value pairs
     \pgfkeys{/mycenterimage, default, #1}%
     % Set up offsets and top/bottom dependent variables
     \def\xoffset{\mycenterimageXoffset}%
+    \def\captioncontents{#3}%
     \setlength{\excludeoffset}{\mycenterimageYoffset}%
     \ifthenelse{\equal{\mycenterimagePosition}{north}}{%
         \def\yoffset{-1*\mycenterimageYoffset}%
@@ -452,8 +456,15 @@
     % Actually draw the image
     \begin{tikzpicture}[remember picture,overlay]%
         \node[anchor=\mycenterimagePosition, inner sep=0pt,%
-            xshift=\xoffset, yshift=\yoffset] at (current page.\mycenterimagePosition){%
-            \usebox\ibox
+            xshift=\xoffset, yshift=\yoffset,%
+            text width=\mycenterimageWidth] at (current page.\mycenterimagePosition){%
+            \ifthenelse{\equal{\mycenterimagePosition}{north}}{%
+                \usebox\ibox%
+                \@optionalCaption{\captioncontents}%
+            }{%
+                \@optionalCaption{\captioncontents}%
+                \usebox\ibox%
+            }%
         };%
     \end{tikzpicture}%
     % Create a bounding box to exclude text
@@ -475,12 +486,15 @@
 }
 
 \newcommand\imageTop[2][]{%
-        \@centerimage[#1, image_position=top]{#2}%
+        \@centerimage[#1, image_position=top]{#2}{}%
 }
 
 \newcommand\imageBottom[2][]{%
-        \@centerimage[#1, image_position=bottom]{#2}%
+        \@centerimage[#1, image_position=bottom]{#2}{}%
 }
+
+\newcommand\imageBottomCaption[3][]{\@centerimage[#1, image_position=bottom]{#2}{#3}}
+\newcommand\imageTopCaption[3][]{\@centerimage[#1, image_position=top]{#2}{#3}}
 
 % Centered, full image right here rather than at top or bottom of page
 \pgfkeys{
@@ -491,12 +505,16 @@
     width/.estore in = \mymanualimageWidth,
 }
 
-\newcommand\imageHere[2][]{%
+\newcommand\imageHere[2][]{\imageHereCaption[#1]{#2}{}}
+
+\newcommand\imageHereCaption[3][]{%
     \pgfkeys{/mymanualimage, default, #1}%
+    \def\captioncontents{#3}%
     \begin{figure}[!h]%
         \makebox[\textwidth][c]{%
             \includegraphics[width=\mymanualimageWidth]{#2}%
         }%
+        \@optionalCaption{\captioncontents}%
     \end{figure}%
 }
 
@@ -524,6 +542,13 @@
         right/.initial = r,
 }
 
+\newcommand\@optionalCaption[1]{%
+    \ifthenelse{\equal{#1}{}}{}{\legend{\\\captioncontents}}%
+}
+
+% 
+\newcommand\tb{\hspace{1.5em}}
+
 %TODO: Lots to clean up; this function is very large and has some copy/past sections that should be broken out.
 
 % Measurements needed for the below function
@@ -535,12 +560,13 @@
 % [] key/value pairs from definition above
 % #2 text
 % #3 image name
-\newcommand\@sideimage[3][]{%
+\newcommand\@sideimage[4][]{%
     % Parse key / value pairs
     \pgfkeys{/mysideimage, default, #1}%
     % Requried Parameters
     \def\mytext{#3}%
     \def\myimage{#2}%
+    \def\captioncontents{#4}%
     % derived values
     \def\myseparation{1.5em}
     \def\mytotalwidth{\textwidth + \mysideimageMargin}%
@@ -562,6 +588,7 @@
         \sbox\ibox{%
             \begin{minipage}[t][\mysideimageHeight][\mysideimageImagePosition]{\mysideimageWidth}%
                 \includegraphics[width=\mysideimageWidth]{\myimage}%
+                \@optionalCaption{\captioncontents}%
             \end{minipage}%
         }%
     }{%
@@ -575,6 +602,7 @@
         \sbox\ibox{%
             \begin{minipage}[t][][\mysideimageImagePosition]{\mysideimageWidth}%
                 \includegraphics[width=\mysideimageWidth]{\myimage}%
+                \@optionalCaption{\captioncontents}%
             \end{minipage}%
         }%
         % Measure our boxes to see which is taller:
@@ -586,6 +614,7 @@
             \sbox\ibox{%
                 \begin{minipage}[t][\theight][\mysideimageImagePosition]{\mysideimageWidth}%
                     \includegraphics[width=\mysideimageWidth]{\myimage}%
+                    \@optionalCaption{\captioncontents}%
                 \end{minipage}%
             }%
         }{%
@@ -612,11 +641,19 @@
 }
 
 \newcommand\imageLeft[3][]{%
-    \@sideimage[#1, side=left]{#2}{#3}%
+    \@sideimage[#1, side=left]{#2}{#3}{}%
 }
 
 \newcommand\imageRight[3][]{%
-    \@sideimage[#1, side=right]{#2}{#3}%
+    \@sideimage[#1, side=right]{#2}{#3}{}%
+}
+
+\newcommand\imageLeftCaption[4][]{%
+    \@sideimage[#1, side=left]{#2}{#3}{#4}%
+}
+
+\newcommand\imageRightCaption[4][]{%
+    \@sideimage[#1, side=right]{#2}{#3}{#4}%
 }
 
 % == Image Credits macro ==---------------------------------------------------
@@ -624,21 +661,25 @@
 \newoutputstream{imagecreditsout}
 \newinputstream{imagecreditsin}
 
-\newcommand\imageCredit[4][n]{%
+\newcommand\formatImageCredit[4][n]{%
     \ifthenelse{\equal{#1}{modified}}{\def\byline{original by }}{\def\byline{by }}
     \def\image{#2}
     %\def\artist{#2} % use if statement to handle uncredited artwork instead
     \def\copyright{#4}
     % Handle anonymous artist
     \if\relax\detokenize{#3}\relax \def\artist{(not credited)}\else \def\artist{\byline #3}\fi
+    % Output the formatted image credit
+    \emph{"\image"} \artist, \emph{\copyright}%
+}
+
+\newcommand\imageCredit[4][n]{%
     % If we last read from the file, close it
     \IfStreamOpen{imagecreditsin}{\closeinputstream{imagecreditsin}}{}
     % Open(and clear) the file if necessary
     \IfStreamOpen{imagecreditsout}{}{\openoutputfile{\jobname.imagecredits.aux}{imagecreditsout}}
     \addtostream{imagecreditsout}{%
-        • \emph{"\image"} \artist, \emph{\copyright}%
-    }
-    
+        • \formatImageCredit[#1]{#2}{#3}{#4}%
+    } 
 }
 
 %print either the copyright given, or the correct image.

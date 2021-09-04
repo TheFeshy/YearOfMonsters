@@ -100,6 +100,19 @@ You can add centered images anywhere in a page:
 
 You can see that the `\imageHere` macro is almost identical to the `\imageTop` macro, and places its image right where it appears in the text (rather than at the top or the bottom of the page.)
 
+### Image (here) with a caption
+
+```tex
+\imageHereCaption[width=3in]{here}{caption below image}
+```
+
+All of the image macros have a form with `Caption` added to the end that will place a caption below the image (or above it, in the case of `\imageBottomCaption`)  They take an additional parameter that is the caption you wish to use.  This can be any formatted text, with the usual `\emph{}` or other commands.  If you would like to use this caption space for image credits, and you like the formatting of the image credits that is donew with the `\imageCredit` macro, you can use the same syntax with `\formatImageCredit`.  For example, to place the image 'here' with the same image credit as the previous example, you would use
+
+```tex
+You can add centered images anywhere in a page:
+\imageHereCaption[width=3in]{here}{\formatImageCredit{Centered image}{}{CC0}}
+```
+
 ### Countdown
 
 ```tex
